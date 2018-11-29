@@ -16,25 +16,8 @@
 
           <v-spacer></v-spacer>
           <div>
-            <v-btn color="success">Success</v-btn>
-            <v-menu offset-y>
-      <v-btn
-        slot="activator"
-        color="primary"
-        dark
-      >
-        Dropdown
-      </v-btn>
-      <v-list>
-        <v-list-tile
-          v-for="(item, index) in items"
-          :key="index"
-          @click=""
-        >
-          <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-menu>
+            <v-btn color="info">Acceder</v-btn>
+            <v-btn color="success">Registrarse</v-btn>
           </div>
           
           
@@ -60,7 +43,20 @@
 </script>
 
 <style>
-.success{
-  background-color: black !important;
-}
+  .success {
+    background-color: #4caf50!important;
+    border-color: #4caf50 !important;
+  }
+  .error {
+    background-color: #ff5252!important;
+    border-color: #ff5252 !important;
+  }
+  .warning {
+    background-color: #ffc107!important;
+    border-color: #ffc107 !important;
+  }
+  .info {
+    background-color: #2196f3!important;
+    border-color: #2196f3 !important;
+  }
 </style>
