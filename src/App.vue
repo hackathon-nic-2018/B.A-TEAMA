@@ -12,7 +12,7 @@
     <v-flex xs12>
       <v-card>
         <v-card-title class="blue white--text">
-          <span class="headline">Circularidapp</span>
+          <span class="headline title">Circularidapp</span>
           <v-spacer></v-spacer>
           <div>
              <v-dialog
@@ -120,7 +120,7 @@
                 white--text
                 xs12
               >
-                &copy;2018 — <strong>Vuetify</strong>
+                &copy;2018 — <strong>B.A Team</strong>
               </v-flex>
             </v-layout>
   </v-footer>
@@ -178,6 +178,9 @@
   .primary {
     background-color: #1867c0 !important;
     border-color: #1867c0 !important;
+  }
+  .title{
+    margin-left: 15px;
   }
   
 </style>
