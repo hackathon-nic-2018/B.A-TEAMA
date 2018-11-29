@@ -93,42 +93,40 @@
               </v-dialog>
           </div>        
         </v-card-title>
-
         <router-view/>
+         <v-footer
+            height="auto"
+            color="primary lighten-1"
+          >
+            <v-layout
+              justify-center
+              row
+              wrap
+            >
+              <v-btn
+                v-for="link in links"
+                :key="link"
+                color="white"
+                flat
+                round
+              >
+                {{ link }}
+              </v-btn>
+              <v-flex
+                primary
+                lighten-2
+                py-3
+                text-xs-center
+                white--text
+                xs12
+              >
+                &copy;2018 — <strong>Vuetify</strong>
+              </v-flex>
+            </v-layout>
+  </v-footer>
       </v-card>
 
       <!--footer-->
-      <v-footer
-    height="auto"
-    color="primary lighten-1"
-  >
-    <v-layout
-      justify-center
-      row
-      wrap
-    >
-      <v-btn
-        v-for="link in links"
-        :key="link"
-        color="white"
-        flat
-        round
-      >
-        {{ link }}
-      </v-btn>
-      <v-flex
-        primary
-        lighten-2
-        py-3
-        text-xs-center
-        white--text
-        xs12
-      >
-        &copy;2018 — <strong>Vuetify</strong>
-      </v-flex>
-    </v-layout>
-  </v-footer>
-
     </v-flex>
   </v-layout>
 </template>
@@ -156,8 +154,8 @@
     })
   }
 </script>
-
 <style>
+
   .success {
     background-color: #4caf50!important;
     border-color: #4caf50 !important;
@@ -174,8 +172,12 @@
     background-color: #2196f3!important;
     border-color: #2196f3 !important;
   }
+  .jumbotron{
+    margin-bottom: 0 !important;
+  }
   .primary {
     background-color: #1867c0 !important;
     border-color: #1867c0 !important;
   }
+  
 </style>
