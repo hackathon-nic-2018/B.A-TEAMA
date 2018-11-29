@@ -12,15 +12,86 @@
     <v-flex xs12>
       <v-card>
         <v-card-title class="blue white--text">
-          <span class="headline">Menu</span>
-
+          <span class="headline">Circularidapp</span>
           <v-spacer></v-spacer>
           <div>
-            <v-btn color="info">Acceder</v-btn>
-            <v-btn color="success">Registrarse</v-btn>
-          </div>
-          
-          
+             <v-dialog
+                v-model="dialogLogin"
+                width="500"
+              >
+                <v-btn
+                  slot="activator"
+                  color="info"
+                  dark
+                >
+                  Acceder
+                </v-btn>
+
+                <v-card>
+                  <v-card-title
+                    class="headline grey lighten-2"
+                    primary-title
+                  >
+                    Acceder
+                  </v-card-title>
+
+                  <v-card-text>
+                   
+                  </v-card-text>
+
+                  <v-divider></v-divider>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="primary"
+                      flat
+                      @click="dialogLogin = false"
+                    >
+                      Cerrar
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+              <v-dialog
+                v-model="dialogSignUP"
+                width="500"
+              >
+                <v-btn
+                  slot="activator"
+                  color="success"
+                  dark
+                >
+                  Registrarse
+                </v-btn>
+
+                <v-card>
+                  <v-card-title
+                    class="headline grey lighten-2"
+                    primary-title
+                  >
+                    Registrarse
+                  </v-card-title>
+
+                  <v-card-text>
+                   
+                  </v-card-text>
+
+                  <v-divider></v-divider>
+
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="primary"
+                      flat
+                      @click="dialogSignUP = false"
+                    >
+                      Cerrar
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+          </div>        
         </v-card-title>
 
         <router-view/>
@@ -37,7 +108,9 @@
         { title: 'Click Me' },
         { title: 'Click Me' },
         { title: 'Click Me 2' }
-      ]
+      ],
+      dialogLogin: false,
+      dialogSignUP: false
     })
   }
 </script>
@@ -58,5 +131,9 @@
   .info {
     background-color: #2196f3!important;
     border-color: #2196f3 !important;
+  }
+  .primary {
+    background-color: #1867c0 !important;
+    border-color: #1867c0 !important;
   }
 </style>
