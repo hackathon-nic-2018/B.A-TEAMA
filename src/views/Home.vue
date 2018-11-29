@@ -5,13 +5,16 @@
       <div class="container">
   <div class="row">
     <div class="col-sm">
-      <img src="./../assets/img/icon1.png" alt="">
+      <img class="imgIcon" src="./../assets/img/icon1.png" alt="">
+        <h3>Productos</h3>
     </div>
     <div class="col-sm">
-      <img src="./../assets/img/icon2.png" alt="">
+      <img class="imgIcon" src="./../assets/img/icon2.png" alt="">
+        <h3>Servicios</h3>
     </div>
     <div class="col-sm">
-      <img src="./../assets/img/icon3.png" alt="">
+      <img class="imgIcon" src="./../assets/img/icon3.png" alt="">
+        <h3>Manufactura</h3>
     </div>
   </div>
 </div>
@@ -25,11 +28,16 @@ export default {
 </script>
 <style>
 .jumbotron{
-  height: 500px;
+  height: 350px;
   color: white;
   background-image: url(./../assets/img/banner.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
+}
+.imgIcon{
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
 }
 </style>
 
