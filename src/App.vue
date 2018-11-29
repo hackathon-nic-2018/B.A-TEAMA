@@ -1,18 +1,10 @@
-<!--<template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
-</template>-->
 <template>
   <v-layout row>
     <v-flex xs12>
       <v-card>
         <v-card-title class="blue white--text">
-          <span class="headline title">Circularidapp</span>
+          <img id="logo" src="./assets/img/logo.png" alt="Logo Circularidapp">
+          <span class="headline title">CircularidApp</span>
           <v-spacer></v-spacer>
           <div>
              <v-dialog
@@ -180,7 +172,13 @@
     border-color: #1867c0 !important;
   }
   .title{
-    margin-left: 15px;
+    margin-left: 5px;
   }
   
+</style>
+<style scoped>
+#logo{
+  height: 50px;
+  margin-left: 15px;
+}
 </style>
