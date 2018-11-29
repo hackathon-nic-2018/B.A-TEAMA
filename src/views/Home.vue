@@ -30,7 +30,7 @@ export default {
 .jumbotron{
   height: 350px;
   color: white;
-  background-image: url(./../assets/img/banner.jpg);
+  background-image: url(./../assets/img/banner.png);
   background-repeat: no-repeat;
   background-size: 100%;
 }
