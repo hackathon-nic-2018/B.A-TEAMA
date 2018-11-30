@@ -1,5 +1,5 @@
 <template>
-    <section class="container">
+    <section class="container"> <!--Aviso notFound-->
         <section class="row">
             <b-jumbotron class="col">
                 <template slot="header">

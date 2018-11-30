@@ -18,7 +18,7 @@
                     </b-dropdown>   <!--Fin Dropdown--> &nbsp;&nbsp;&nbsp;
                     <label class="sr-only" for="inlineFormInputName2">Buscar</label>
                     <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="¿Qué desea encontrar?" />
-                    <b-button variant="primary">BUSCAR</b-button>
+                    <b-button variant="primary">BUSCAR</b-button> <!--boton buscar-->
                 </b-form>
             </div>
         </div>
@@ -38,7 +38,7 @@
                     </p>
                     <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
                     <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
-                </b-card>
+                </b-card> <!--fin card-->
             </div>
             <div class="col-md">
                 <b-card title="Card Title"
@@ -53,7 +53,7 @@
                     </p>
                     <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
                     <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
-                </b-card>
+                </b-card> <!--fin card-->
             </div>
             <div class="col-md">
                 <b-card title="Card Title"
@@ -68,7 +68,7 @@
                     </p>
                     <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
                     <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
-                </b-card>
+                </b-card> <!--fin card-->
             </div>
         </div>
     </div> 
