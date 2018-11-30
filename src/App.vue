@@ -355,6 +355,9 @@
   .title{
     margin-left: 5px;
   }
+.title:hover{
+  opacity: 0.8;
+}
   
 </style>
 <style scoped>

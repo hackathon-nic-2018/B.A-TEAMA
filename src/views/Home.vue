@@ -39,6 +39,9 @@ export default {
   height: auto;
   border-radius: 50%;
 }
+.imgIcon:hover{
+  opacity: 0.8;
+}
 .seccionIcon{
   padding-top: 50px;
   padding-bottom: 50px;
