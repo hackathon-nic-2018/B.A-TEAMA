@@ -3,16 +3,16 @@ import Vue from 'vue'
 export default {
   post (url, data) {
     return new Promise((resolve, reject) => {
-      Vue.http.post(url, data, this.options()).then(response => {
+      Vue.http.post(url, data).then(response => {
         resolve(response)
       }, error => {
         reject(error)
       })
     })
   },
-  get (url, config) {
+  get (url) {
     return new Promise((resolve, reject) => {
-      Vue.http.get(url, Object.assign(this.options(), config)).then(response => {
+      Vue.http.get(url).then(response => {
         resolve(response)
       }, error => {
         reject(error)
@@ -21,7 +21,7 @@ export default {
   },
   put (url, data) {
     return new Promise((resolve, reject) => {
-      Vue.http.put(url, data, this.options()).then(response => {
+      Vue.http.put(url, data).then(response => {
         resolve(response)
       }, error => {
         reject(error)
@@ -30,7 +30,7 @@ export default {
   },
   delete (url) {
     return new Promise((resolve, reject) => {
-      Vue.http.delete(url, this.options()).then(response => {
+      Vue.http.delete(url).then(response => {
         resolve(response)
       }, error => {
         reject(error)
