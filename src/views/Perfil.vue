@@ -57,7 +57,39 @@
             </b-modal>
           </div>
       </div>
+      <div v-if="rolUserlogged.rol === 'CLIENTE'">
+        <h3>PRODUCTOS QUE ME INTERESAN</h3>
+        <div class="container text-center"> <!--seccion card projectos-->
+            <div class="row">
+                <div class="col-4" v-for="(item, index) in productClient" :key="index">
+                    <b-card :title="item.producto.nombre"
+                        :img-src="item.producto.fotoUrl"
+                        img-alt="Image"
+                        img-top
+                        tag="article"
+                        style="max-width: 20rem;"
+                        class="mb-2">
+                        <p class="card-text">
+                        {{item.producto.descripcion}}
+                        </p>
+                    </b-card> <!--fin card-->
+                </div>
+            </div>
+        </div>
+      </div>
       <div v-if="rolUserlogged.rol === 'VENDEDOR'">
+        <!--Modal for Clientes interesados-->
+            <b-modal ref="myModalRefInteresados" hide-footer title="Clientes interesados!">
+                <div class="d-block text-center">
+                    <b-list-group>
+                        <b-list-group-item v-for="(item, index) in clientProduct" :key="index">Nombre: {{ item.usuario.nombre }}, Telefono: {{ item.usuario.telefono }},Correo: {{ item.usuario.correo }},Departamento: {{ item.usuario.departamento }}</b-list-group-item>
+
+                    </b-list-group>
+                </div>
+                <b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Cerrar</b-btn>
+            </b-modal>
+        <!--Fin modal Clientes interesados-->
+
         <h3>MIS PRODUCTOS EN VENTA</h3>
         <div class="container text-center"> <!--seccion card projectos-->
             <div class="row">
@@ -97,6 +129,8 @@ export default {
         precio: '',
       },
       myProductsInOfert: [],
+      clientProduct: [],
+      productClient: [],
       show: true
     }
   },
@@ -107,6 +141,11 @@ export default {
       appService.get(`${Vue.http.options.root}/product/product-by-userid/${this.rolUserlogged._id}`
       ).then((resp) => {
           this.myProductsInOfert = resp.body
+      }, () => {
+
+      })
+      appService.get(`${Vue.http.options.root}/client-product/product-by-client/${this.rolUserlogged._id}`).then((resp)=> {
+          this.productClient = resp.body.clientProductDB
       }, () => {
 
       })
@@ -126,8 +165,17 @@ export default {
       evt.preventDefault();
       alert(JSON.stringify(this.form));
     },
+    hideModal () {
+      this.$refs.myModalRefInteresados.hide()
+    },
     getClientsByProduct(productId) {
-        alert(productId)
+        this.$refs.myModalRefInteresados.show()
+        appService.get(`${Vue.http.options.root}/client-product/client-product-by-product/${productId}`).then((resp) => {
+          this.clientProduct = resp.body.clientProductDB
+        }, () => {
+
+        })
+
     },
     onReset (evt) {
       evt.preventDefault();
