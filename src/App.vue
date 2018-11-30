@@ -11,36 +11,172 @@
             <b-modal id="modal1" title="Bootstrap-Vue">
               <div class="formAcceder">
                 <h3 style="color: black;">ACCEDER</h3>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group id="exampleInputGroup1"
+                <b-form @submit="onLogin" @reset="onReset" v-if="show">
+                  <b-form-group id="exampleInputGroup1"
                     label="Email address:"
                     label-for="exampleInput1"
                     description="We'll never share your email with anyone else.">
-        <b-form-input id="exampleInput1"
+                  <b-form-input id="exampleInput1"
                       type="email"
-                      v-model="form.email"
+                      v-model="form.correo"
                       required
-                      placeholder="Enter email">
-        </b-form-input>
-      </b-form-group>
-      <b-form-group id="exampleInputGroup2"
+                      placeholder="Correo">
+                  </b-form-input>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup2"
                     label="Your Name:"
                     label-for="exampleInput2">
-        <b-form-input id="exampleInput2"
-                      type="text"
-                      v-model="form.name"
+                  <b-form-input id="exampleInput2"
+                      type="password"
+                      v-model="form.contrasena"
                       required
-                      placeholder="Enter name">
-        </b-form-input>
-      </b-form-group>
-      <b-button type="submit" variant="primary">Entrar</b-button>
-    </b-form>
-  </div>
+                      placeholder="Contraseña">
+                  </b-form-input>
+                  </b-form-group>
+                    <b-button type="submit" variant="primary">Entrar</b-button>
+                </b-form>
+              </div> <!--fin form-->
             </b-modal> &nbsp;&nbsp;&nbsp;  
           <b-button v-b-modal.modal2 variant="success" class="boton">Registrar</b-button>
           <!-- Modal Component -->
           <b-modal id="modal2" title="Bootstrap-Vue">
-            <p class="my-4">Hello from modal!</p>
+            <div class="formAcceder">
+                <h3 style="color: black;">REGISTRAR</h3>
+                <b-form @submit="onRegistro" @reset="onResetRegistro" v-if="show">
+                  <b-form-group id="exampleInputGroup2"
+                    label="Email address:"
+                    label-for="exampleInput1"
+                    description="We'll never share your email with anyone else.">
+                  <b-form-input id="exampleInput1"
+                      type="email"
+                      v-model="formRegistro.email"
+                      required
+                      placeholder="Correo">
+                  </b-form-input>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup2"
+                    label="Nombre completo:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="formRegistro.nombre"
+                      required
+                      placeholder="Nombre completo">
+                  </b-form-input>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup2"
+                    label="Telefono:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="number"
+                      v-model="formRegistro.telefono"
+                      required
+                      placeholder="Telefono">
+                  </b-form-input>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup2"
+                    label="Contraseña:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="formRegistro.contrasena"
+                      required
+                      placeholder="Contraseña">
+                  </b-form-input>
+                  </b-form-group><b-form-group id="exampleInputGroup2"
+                    label="Rol:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="form.rol"
+                      required
+                      placeholder="Rol">
+                  </b-form-input>
+                  </b-form-group>
+                  </b-form-group><b-form-group id="exampleInputGroup2"
+                    label="Edad:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="form.edad"
+                      required
+                      placeholder="Edad">
+                  </b-form-input>
+                  </b-form-group>
+                  </b-form-group><b-form-group id="exampleInputGroup2"
+                    label="Descripcion:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="form.descripcion"
+                      required
+                      placeholder="Descripción">
+                  </b-form-input>
+                  </b-form-group>
+                  </b-form-group><b-form-group id="exampleInputGroup2"
+                    label="Pais:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="form.pais"
+                      required
+                      placeholder="País">
+                  </b-form-input>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup2"
+                    label="Departamento:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="form.departamento"
+                      required
+                      placeholder="Departamento">
+                  </b-form-input>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup2"
+                    label="Municipio:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="form.municipio"
+                      required
+                      placeholder="Municipio">
+                  </b-form-input>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup3"
+                    label="Sexo:"
+                    label-for="exampleInput3">
+                  <b-form-select id="exampleInput3"
+                      :options="sexo"
+                      required
+                       placeholder="Sexo"
+                      v-model="form.sexo">
+                  </b-form-select>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup2"
+                    label="Cedula:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="form.cedula"
+                      required
+                      placeholder="Cédula">
+                  </b-form-input>
+                  </b-form-group>
+                  <b-form-group id="exampleInputGroup2"
+                    label="fotourl:"
+                    label-for="exampleInput2">
+                  <b-form-input id="exampleInput2"
+                      type="text"
+                      v-model="form.fotourl"
+                      required
+                      placeholder="Foto">
+                  </b-form-input>
+                  </b-form-group>
+                  
+                    <b-button type="submit" variant="primary">Guardar</b-button>
+                </b-form>
+            </div>
           </b-modal>      
         </v-card-title>
         <router-view/>
@@ -73,7 +209,7 @@
                 &copy;2018 — <strong>B.A Team</strong>
               </v-flex>
             </v-layout>
-  </v-footer>
+          </v-footer>
       </v-card>
 
       <!--footer-->
@@ -84,21 +220,28 @@
 <script>
   export default {
     data: () => ({
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' }
-      ],
       form: {
-        email: '',
-        name: '',
-        food: null,
-        checked: []
+        correo: '',
+        contrasena: '',
       },
-      foods: [
+      formRegistro: {
+        nombre: '',
+        correo: '',
+        telefono: '',
+        contrasena: '',
+        rol: '',
+        edad: '',
+        descripcion: '',
+        pais: '',
+        departamento: '',
+        municipio: '',
+        sexo: '',
+        cedula: '',
+        fotourl: '',
+      },
+      sexo: [
         { text: 'Select One', value: null },
-        'Carrots', 'Beans', 'Tomatoes', 'Corn'
+        'FEMENINO', 'MASCULINO'
       ],
       show: true,
 
@@ -112,22 +255,44 @@
       ]
     }),
     methods: {
-    onSubmit (evt) {
-      evt.preventDefault();
-      alert(JSON.stringify(this.form));
-    },
-    onReset (evt) {
-      evt.preventDefault();
-      /* Reset our form values */
-      this.form.email = '';
-      this.form.name = '';
-      this.form.food = null;
-      this.form.checked = [];
-      /* Trick to reset/clear native browser form validation state */
-      this.show = false;
-      this.$nextTick(() => { this.show = true });
+      onLogin (evt) {
+        evt.preventDefault();
+        alert(JSON.stringify(this.form));
+      },
+      onRegistro (evt) {
+        evt.preventDefault();
+        alert(JSON.stringify(this.formRegistro));
+      },
+      onReset (evt) {
+        evt.preventDefault();
+        /* Reset our form values */
+        this.form.correo = '';
+        this.form.contrasena = '';
+        /* Trick to reset/clear native browser form validation state */
+        this.show = false;
+        this.$nextTick(() => { this.show = true });
+      },
+      onResetRegistro (evt) {
+        evt.preventDefault();
+        /* Reset our form values */
+        this.formRegistro.nombre = '';
+        this.formRegistro.correo = '';
+        this.formRegistro.telefono = '';
+        this.formRegistro.contrasena = '',
+        this.formRegistro.rol = '',
+        this.formRegistro.edad = '',
+        this.formRegistro.descripcion = '',
+        this.formRegistro.pais = '',
+        this.formRegistro.departamento = '',
+        this.formRegistro.municipio = '',
+        this.formRegistro.sexo = '',
+        this.formRegistro.cedula = '',
+        this.formRegistro.fotourl = '',
+        /* Trick to reset/clear native browser form validation state */
+        this.show = false;
+        this.$nextTick(() => { this.show = true });
+      }
     }
-  }
   }
 </script>
 <style>
