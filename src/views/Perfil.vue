@@ -74,8 +74,6 @@
                     <p class="card-text">
                     Some quick example text to build on the card title and make up the bulk of the card's content.
                     </p>
-                    <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
-                    <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
                 </b-card> <!--fin card-->
             </div>
             <div class="col-md">
@@ -89,8 +87,6 @@
                     <p class="card-text">
                     Some quick example text to build on the card title and make up the bulk of the card's content.
                     </p>
-                    <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
-                    <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
                  </b-card> <!--fin card-->
             </div>
             <div class="col-md">
@@ -104,8 +100,6 @@
                     <p class="card-text">
                     Some quick example text to build on the card title and make up the bulk of the card's content.
                     </p>
-                    <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
-                    <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
                 </b-card>
             </div>
         </div>

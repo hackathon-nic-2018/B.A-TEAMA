@@ -252,11 +252,7 @@
 
       links: [
         'Home',
-        'About Us',
-        'Team',
-        'Services',
-        'Blog',
-        'Contact Us'
+        'About Us'
       ]
     }),
     mounted: function () {
