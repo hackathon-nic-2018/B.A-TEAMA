@@ -118,8 +118,8 @@
                   </b-form-group>
                   <b-form-group id="exampleInputGroup2"
                     label="Pais:"
-                    label-for="exampleInput2">
-                  <b-form-input id="exampleInput2"
+                    label-for="inptPais">
+                  <b-form-input id="inptPais"
                       type="text"
                       v-model="form.pais"
                       required
@@ -129,7 +129,7 @@
                   <b-form-group id="exampleInputGroup2"
                     label="Departamento:"
                     label-for="exampleInput2">
-                  <b-form-input id="exampleInput2"
+                  <b-form-input id="inptDepartamento"
                       type="text"
                       v-model="form.departamento"
                       required
@@ -139,7 +139,7 @@
                   <b-form-group id="exampleInputGroup2"
                     label="Municipio:"
                     label-for="exampleInput2">
-                  <b-form-input id="exampleInput2"
+                  <b-form-input id="inptMunicipio"
                       type="text"
                       v-model="form.municipio"
                       required
@@ -221,6 +221,8 @@
 </template>
 
 <script>
+  const places = require('places.js')
+  
   export default {
     data: () => ({
       form: {
@@ -257,6 +259,33 @@
         'Contact Us'
       ]
     }),
+    mounted: function () {
+      /********Option for Country***********/
+      const fixedOptions = {
+        container: document.querySelector('#inptPais'),
+      };
+
+      const reconfigurableOptions = {
+        language: 'es',
+        countries: ['ni'],
+        type: 'country',
+        aroundLatLngViaIP: false
+      };
+      places(fixedOptions).configure(reconfigurableOptions);
+    /************Option for City******************/
+      const fixedOptions2 = {
+        container: document.querySelector('#inptDepartamento'),
+      };
+
+      const reconfigurableOptions2 = {
+        language: 'es',
+        countries: ['ni'],
+        type: 'city',
+        aroundLatLngViaIP: false
+      };
+      places(fixedOptions2).configure(reconfigurableOptions2);
+
+    },
     methods: {
       onLogin (evt) {
         evt.preventDefault();
