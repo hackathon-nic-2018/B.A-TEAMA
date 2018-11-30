@@ -6,6 +6,9 @@
           <img id="logo" src="./assets/img/logo.png" alt="Logo Circularidapp">
           <span class="headline title">CircularidApp</span>
           <v-spacer></v-spacer> 
+             <b-button to="/perfil" variant="primary">Perfil</b-button>&nbsp;&nbsp;&nbsp;
+             <b-button to="/buscar" variant="success">Buscar</b-button>&nbsp;&nbsp;&nbsp;
+             <b-button to="/buscar" variant="warning">Salir</b-button>&nbsp;&nbsp;&nbsp;
             <b-button v-b-modal.modal1 variant="primary">Acceder</b-button>
             <!-- Modal Component -->
             <b-modal id="modal1" title="Bootstrap-Vue">

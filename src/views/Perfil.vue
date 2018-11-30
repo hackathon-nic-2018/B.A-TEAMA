@@ -74,16 +74,8 @@
                     <p class="card-text">
                     Some quick example text to build on the card title and make up the bulk of the card's content.
                     </p>
-                    <b-button href="#" variant="primary"><i class="fas fa-eye"></i></b-button>
-                    <!--favorito-->
-                    <v-btn
-                        color="teal"
-                        flat
-                        value="favorites"
-                    >
-                    <span></span>
-                    <v-icon>favorite</v-icon>
-                    </v-btn> <!--Fin favorito-->
+                    <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
+                    <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
                 </b-card> <!--fin card-->
             </div>
             <div class="col-md">
@@ -97,17 +89,9 @@
                     <p class="card-text">
                     Some quick example text to build on the card title and make up the bulk of the card's content.
                     </p>
-                    <b-button href="#" variant="primary">Ver</b-button>
-                    <!--favorito-->
-                    <v-btn
-                        color="teal"
-                        flat
-                        value="favorites"
-                    >
-                    <span></span>
-                    <v-icon>favorite</v-icon>
-                    </v-btn> <!--Fin favorito-->
-                </b-card> <!--fin card-->
+                    <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
+                    <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
+                 </b-card> <!--fin card-->
             </div>
             <div class="col-md">
                 <b-card title="Card Title"
@@ -120,16 +104,8 @@
                     <p class="card-text">
                     Some quick example text to build on the card title and make up the bulk of the card's content.
                     </p>
-                    <b-button href="#" variant="primary">Ver</b-button>
-                    <!--favorito-->
-                    <v-btn
-                        color="teal"
-                        flat
-                        value="favorites"
-                    >
-                    <span></span>
-                    <v-icon>favorite</v-icon>
-                    </v-btn> <!--Fin favorito-->
+                    <b-button href="#" variant="outline-primary"><i class="fas fa-eye"></i></b-button>&nbsp;&nbsp;&nbsp;
+                    <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
                 </b-card>
             </div>
         </div>
