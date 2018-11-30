@@ -93,7 +93,7 @@
                       placeholder="Rol">
                   </b-form-input>
                   </b-form-group>
-                  </b-form-group><b-form-group id="exampleInputGroup2"
+                  <b-form-group id="exampleInputGroup2"
                     label="Edad:"
                     label-for="exampleInput2">
                   <b-form-input id="exampleInput2"
@@ -103,7 +103,7 @@
                       placeholder="Edad">
                   </b-form-input>
                   </b-form-group>
-                  </b-form-group><b-form-group id="exampleInputGroup2"
+                  <b-form-group id="exampleInputGroup2"
                     label="Descripcion:"
                     label-for="exampleInput2">
                   <b-form-input id="exampleInput2"
@@ -113,7 +113,7 @@
                       placeholder="Descripción">
                   </b-form-input>
                   </b-form-group>
-                  </b-form-group><b-form-group id="exampleInputGroup2"
+                  <b-form-group id="exampleInputGroup2"
                     label="Pais:"
                     label-for="exampleInput2">
                   <b-form-input id="exampleInput2"
