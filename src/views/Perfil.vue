@@ -4,7 +4,7 @@
           <div class="col-md-8">
               <ul class="list-unstyled"> <!--imagen y descripcion-->
             <b-media tag="li">
-                <img slot="aside" blank blank-color="#abc" width="90" src="https://firebasestorage.googleapis.com/v0/b/hacknic2018.appspot.com/o/img%2Fuser.png?alt=media&token=a9d59d0f-4084-4437-9354-ac81196391f9" alt="">
+                <img slot="aside" blank blank-color="#abc" width="90" height="95" src="https://firebasestorage.googleapis.com/v0/b/hacknic2018.appspot.com/o/img%2Fuser.png?alt=media&token=a9d59d0f-4084-4437-9354-ac81196391f9" alt="">
                 <h5 class="mt-0 mb-1">Juan López López</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
                 nte sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
@@ -13,8 +13,8 @@
             </b-media>
         </ul>
           </div>
-          <div class="col-md-4 text-right" style="margin-bottom:80px;"> 
-            <b-button v-b-modal.modal3 variant="outline-secondary">PUBLICAR</b-button> <!--opcion publicar, ventana modal-->
+          <div class="col-md-4 text-right" style="margin-bottom:80px;">
+            <b-button v-b-modal.modal3 variant="outline-secondary" v-if="user.rol === 'VENDEDOR'">PUBLICAR</b-button>
             <b-modal id="modal3" title="PUBLICAR PRODUCTO">
                 <b-form @submit="onPublicar" @reset="onReset" v-if="show"> <!--form ventana modal-->
                     <b-form-group id="exampleInputGroup2"
@@ -111,6 +111,7 @@
 export default {
   data () {
     return {
+      user: null,
       form: {
         nombre: '',
         fotourl: '',
@@ -121,6 +122,9 @@ export default {
       show: true
     }
   },
+  created: function () {
+    this.user = localStorage.getItem('lbUser')
+   },
   methods: {
     onPublicar (evt) {
       evt.preventDefault();

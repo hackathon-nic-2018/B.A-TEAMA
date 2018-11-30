@@ -3,15 +3,14 @@
     <v-flex xs12>
       <v-card>
         <v-card-title class="blue white--text">
-          <img id="logo" src="./assets/img/logo.png" alt="Logo Circularidapp">
+          <a href="/"><img id="logo" src="./assets/img/logo.png" alt="Logo Circularidapp"></a>
           <span class="headline title">CircularidApp</span>
           <v-spacer></v-spacer> 
-             <b-button to="/perfil" variant="primary">Perfil</b-button>&nbsp;&nbsp;&nbsp;
-             <b-button to="/buscar" variant="success">Buscar</b-button>&nbsp;&nbsp;&nbsp;
-             <b-button to="/buscar" variant="warning">Salir</b-button>&nbsp;&nbsp;&nbsp;
-            <b-button v-b-modal.modal1 variant="primary">Acceder</b-button>
+             <b-button to="/perfil" variant="primary" v-if="user !== null">Perfil</b-button>&nbsp;&nbsp;
+             <b-button to="/buscar" variant="success" v-if="rolUserlogged.rol === 'CLIENTE'">Buscar</b-button>&nbsp;&nbsp;&nbsp;
+            <b-button v-b-modal.modal1 variant="primary" v-if="user === null">Acceder</b-button>
             <!-- Modal Component -->
-            <b-modal id="modal1" title="Bootstrap-Vue">
+            <b-modal id="modal1" ref="myModalRefLog" title="Bootstrap-Vue">
               <div class="formAcceder">
                 <h3 style="color: black;">ACCEDER</h3>
                 <b-form @submit="onLogin" @reset="onReset" v-if="show">
@@ -40,7 +39,8 @@
                 </b-form>
               </div> <!--fin form-->
             </b-modal> &nbsp;&nbsp;&nbsp;  
-          <b-button v-b-modal.modal2 variant="success" class="boton">Registrar</b-button>
+          <b-button v-b-modal.modal2 variant="success" class="boton" v-if="user === null">Registrar</b-button>
+          <b-button @click="onLogOut()" variant="primary" v-if="user !== null">Cerrar Sesión</b-button>
           <!-- Modal Component -->
           <b-modal id="modal2" title="Bootstrap-Vue">
             <div class="formAcceder">
@@ -198,6 +198,7 @@
                 color="white"
                 flat
                 round
+                @click="clickLink(link)"
               >
                 {{ link }}
               </v-btn>
@@ -222,9 +223,12 @@
 
 <script>
   const places = require('places.js')
-  
+  import appService from './services/app.services'
+  import Vue from 'vue'
+
   export default {
     data: () => ({
+      user: '',
       form: {
         correo: '',
         contrasena: '',
@@ -251,11 +255,12 @@
       show: true,
 
       links: [
-        'Home',
-        'About Us'
+        'INICIO',
+        'SOBRE NOSOTROS'
       ]
     }),
-    mounted: function () {
+    created: function () {
+      this.user = localStorage.getItem('lbUser')
       /********Option for Country***********/
       const fixedOptions = {
         container: document.querySelector('#inptPais'),
@@ -282,10 +287,45 @@
       places(fixedOptions2).configure(reconfigurableOptions2);
 
     },
+    computed: {
+      rolUserlogged: function () {
+        if (this.user === null) {
+          return {
+            rol: ''
+          }
+        }
+        return this.user
+      }
+    },
     methods: {
+      clickLink (evt) {
+        if (evt === 'SOBRE NOSOTROS') {
+          this.$router.push({name:'about'})
+        } else {
+          this.$router.push({name:'home'})
+        }
+      },
       onLogin (evt) {
         evt.preventDefault();
-        alert(JSON.stringify(this.form));
+        //Doing Login
+        appService.post(`${Vue.http.options.root}/login`, this.form).then((resp) => {
+          const user = resp.body.user
+          const token = resp.body.token
+          this.user = user
+          localStorage.setItem('token', token)
+          localStorage.setItem('lbUser', JSON.stringify(user))
+          this.$router.push({name:'perfil'})
+          this.$refs.myModalRefLog.hide()
+          this.$toastr.success('Accedio Correctamente', 'Notificación')
+        }, () => {
+           this.$toastr.warning('Usuario y Contraseña incorrectas', 'Advertencia')
+        })
+      },
+      onLogOut () {
+        localStorage.removeItem('token')
+        localStorage.removeItem('lbUser')
+        this.user = null
+         this.$router.push({name:'home'})
       },
       onRegistro (evt) {
         evt.preventDefault();
