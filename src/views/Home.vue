@@ -1,9 +1,9 @@
 <template>
-  <div class="home text-center">
+  <div class="home text-center"> <!--jumbotrom-->
       <b-jumbotron class="jumbotron" header="Economía Circular" lead="Apoyar el cambio hacia una economía eficiente en el uso de los recursos" >
       </b-jumbotron>
-      <div class="container seccionIcon">
-  <div class="row">
+      <div class="container seccionIcon"> <!--Seccion iconos de home-->
+  <div class="row"> 
     <div class="col-sm">
       <img class="imgIcon" src="./../assets/img/icon1.png" alt="">
         <h3>Productos</h3>

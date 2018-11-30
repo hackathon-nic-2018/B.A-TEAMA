@@ -2,7 +2,7 @@
   <div class="container">
       <div class="row">
           <div class="col-md-8">
-              <ul class="list-unstyled">
+              <ul class="list-unstyled"> <!--imagen y descripcion-->
             <b-media tag="li">
                 <img slot="aside" blank blank-color="#abc" width="90" height="95" src="https://firebasestorage.googleapis.com/v0/b/hacknic2018.appspot.com/o/img%2Fuser.png?alt=media&token=a9d59d0f-4084-4437-9354-ac81196391f9" alt="">
                 <h5 class="mt-0 mb-1">{{rolUserlogged.nombre}}</h5>
@@ -13,7 +13,7 @@
           <div class="col-md-4 text-right" style="margin-bottom:80px;">
             <b-button v-b-modal.modal3 variant="outline-secondary" v-if="user.rol === 'VENDEDOR'">PUBLICAR</b-button>
             <b-modal id="modal3" title="PUBLICAR PRODUCTO">
-                <b-form @submit="onPublicar" @reset="onReset" v-if="show">
+                <b-form @submit="onPublicar" @reset="onReset" v-if="show"> <!--form ventana modal-->
                     <b-form-group id="exampleInputGroup2"
                     label-for="exampleInput2">
                     <b-form-input id="exampleInput2"
@@ -101,7 +101,7 @@
             </div>
         </div>
     </div> 
-    <h3>CLIENTES INTERESADOS</h3> 
+    <h3>CLIENTES INTERESADOS</h3> <!--seccion clientes interesados-->
   </div>
 </template>
 <script>
