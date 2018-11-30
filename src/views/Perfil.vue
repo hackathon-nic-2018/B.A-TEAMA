@@ -61,7 +61,7 @@
         <h3>PRODUCTOS QUE ME INTERESAN</h3>
         <div class="container text-center"> <!--seccion card projectos-->
             <div class="row">
-                <div class="col-4" v-for="(item, index) in productClient" :key="index">
+                <div class="col-lg-4 col-md-6" v-for="(item, index) in productClient" :key="index">
                     <b-card :title="item.producto.nombre"
                         :img-src="item.producto.fotoUrl"
                         img-alt="Image"

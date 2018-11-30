@@ -25,7 +25,7 @@
         <h3 style="margin-top: 100px; margin-bottom:30px;">Resultados:</h3>
       <div class="container-fluid text-center"> <!--seccion card projectos-->
         <div class="row">
-            <div class="col-md">
+            <div class="col-lg col-md-6">
                 <b-card title="Card Title"
                     img-src="https://picsum.photos/600/300/?image=25"
                     img-alt="Image"
@@ -40,7 +40,7 @@
                     <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
                 </b-card> <!--fin card-->
             </div>
-            <div class="col-md">
+            <div class="col-lg col-md-6">
                 <b-card title="Card Title"
                     img-src="https://picsum.photos/600/300/?image=25"
                     img-alt="Image"
@@ -55,7 +55,7 @@
                     <b-button href="#" variant="outline-danger"><i class="fas fa-heart"></i></b-button>
                 </b-card> <!--fin card-->
             </div>
-            <div class="col-md">
+            <div class="col-lg col-md-6">
                 <b-card title="Card Title"
                     img-src="https://picsum.photos/600/300/?image=25"
                     img-alt="Image"
