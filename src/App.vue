@@ -6,7 +6,7 @@
           <a href="/"><img id="logo" src="./assets/img/logo.png" alt="Logo Circularidapp"></a>
           <span class="headline title">CircularidApp</span>
           <v-spacer></v-spacer> 
-             <b-button to="/perfil" variant="primary" v-if="user !== null">Perfil</b-button>&nbsp;&nbsp;
+             <b-button to="/perfil" variant="primary" v-if="user !== null">Perfil</b-button>&nbsp;
              <b-button to="/buscar" variant="success" v-if="rolUserlogged.rol === 'CLIENTE'">Buscar</b-button>&nbsp;&nbsp;&nbsp;
             <b-button v-b-modal.modal1 variant="primary" v-if="user === null">Acceder</b-button>
             <!-- Modal Component -->
@@ -40,7 +40,7 @@
               </div> <!--fin form-->
             </b-modal> &nbsp;&nbsp;&nbsp;  
           <b-button v-b-modal.modal2 variant="success" class="boton" v-if="user === null">Registrar</b-button>
-          <b-button @click="onLogOut()" variant="primary" v-if="user !== null">Cerrar Sesión</b-button>
+          <b-button @click="onLogOut()" variant="primary" v-if="user !== null">Cerrar Sesión</b-button>&nbsp;&nbsp;&nbsp;
           <!-- Modal Component -->
           <b-modal id="modal2" title="Bootstrap-Vue">
             <div class="formAcceder">

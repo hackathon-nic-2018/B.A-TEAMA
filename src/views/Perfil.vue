@@ -5,7 +5,7 @@
               <ul class="list-unstyled"> <!--imagen y descripcion-->
             <b-media tag="li">
                 <img slot="aside" blank blank-color="#abc" width="90" height="95" src="https://firebasestorage.googleapis.com/v0/b/hacknic2018.appspot.com/o/img%2Fuser.png?alt=media&token=a9d59d0f-4084-4437-9354-ac81196391f9" alt="">
-                <h5 class="mt-0 mb-1">{{rolUserlogged.nombre}}</h5>
+                <h5 class="mt-0 mb-1">{{rolUserlogged.nombre}} | {{rolUserlogged.rol}}</h5>
                 {{rolUserlogged.descripcion}}
             </b-media>
         </ul>
@@ -57,54 +57,35 @@
             </b-modal>
           </div>
       </div>
-      <h3>PRODUCTOS</h3>
-      <div class="container text-center"> <!--seccion card projectos-->
-        <div class="row">
-            <div class="col-md">
-                <b-card title="Card Title"
-                    img-src="https://picsum.photos/600/300/?image=25"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 20rem;"
-                    class="mb-2">
-                    <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                </b-card> <!--fin card-->
-            </div>
-            <div class="col-md">
-                <b-card title="Card Title"
-                    img-src="https://picsum.photos/600/300/?image=25"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 20rem;"
-                    class="mb-2">
-                    <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                 </b-card> <!--fin card-->
-            </div>
-            <div class="col-md">
-                <b-card title="Card Title"
-                    img-src="https://picsum.photos/600/300/?image=25"
-                    img-alt="Image"
-                    img-top
-                    tag="article"
-                    style="max-width: 20rem;"
-                    class="mb-2">
-                    <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                    </p>
-                </b-card>
+      <div v-if="rolUserlogged.rol === 'VENDEDOR'">
+        <h3>MIS PRODUCTOS EN VENTA</h3>
+        <div class="container text-center"> <!--seccion card projectos-->
+            <div class="row">
+                <div class="col-4" v-for="(item, index) in myProductsInOfert" :key="index">
+                    <b-card :title="item.nombre"
+                        :img-src="item.fotoUrl"
+                        img-alt="Image"
+                        img-top
+                        tag="article"
+                        style="max-width: 20rem;"
+                        class="mb-2">
+                        <p class="card-text">
+                        {{item.descripcion}}
+                        <br/><b>Precio: {{item.precio.$numberDecimal}}</b>
+                        </p>
+                        <b-button variant="primary" @click="getClientsByProduct(item._id)">Clientes Interesados</b-button>
+                    </b-card> <!--fin card-->
+                </div>
             </div>
         </div>
-    </div> 
-    <h3>CLIENTES INTERESADOS</h3> <!--seccion clientes interesados-->
+      </div>
   </div>
 </template>
 <script>
+
+import appService from './../services/app.services'
+import Vue from 'vue'
+
 export default {
   data () {
     return {
@@ -115,12 +96,20 @@ export default {
         descripcion: '',
         precio: '',
       },
-      
+      myProductsInOfert: [],
       show: true
     }
   },
   created: function () {
     this.user = localStorage.getItem('lbUser')
+  },
+  mounted: function () {
+      appService.get(`${Vue.http.options.root}/product/product-by-userid/${this.rolUserlogged._id}`
+      ).then((resp) => {
+          this.myProductsInOfert = resp.body
+      }, () => {
+
+      })
   },
     computed: {
         rolUserlogged: function () {
@@ -136,6 +125,9 @@ export default {
     onPublicar (evt) {
       evt.preventDefault();
       alert(JSON.stringify(this.form));
+    },
+    getClientsByProduct(productId) {
+        alert(productId)
     },
     onReset (evt) {
       evt.preventDefault();
