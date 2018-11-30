@@ -2,7 +2,7 @@
   <div class="home text-center">
       <b-jumbotron class="jumbotron" header="Economía Circular" lead="Apoyar el cambio hacia una economía eficiente en el uso de los recursos" >
       </b-jumbotron>
-      <div class="container">
+      <div class="container seccionIcon">
   <div class="row">
     <div class="col-sm">
       <img class="imgIcon" src="./../assets/img/icon1.png" alt="">
@@ -28,16 +28,20 @@ export default {
 </script>
 <style>
 .jumbotron{
-  height: 350px;
+  height: auto;
   color: white;
   background-image: url(./../assets/img/banner.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: auto;
 }
 .imgIcon{
   width: 100px;
   height: auto;
   border-radius: 50%;
+}
+.seccionIcon{
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 </style>
 
