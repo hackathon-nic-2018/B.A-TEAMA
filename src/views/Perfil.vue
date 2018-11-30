@@ -4,7 +4,7 @@
           <div class="col-md-8">
               <ul class="list-unstyled">
             <b-media tag="li">
-                <img slot="aside" blank blank-color="#abc" width="90" src="https://firebasestorage.googleapis.com/v0/b/hacknic2018.appspot.com/o/img%2Fuser.png?alt=media&token=a9d59d0f-4084-4437-9354-ac81196391f9" alt="">
+                <img slot="aside" blank blank-color="#abc" width="90" height="95" src="https://firebasestorage.googleapis.com/v0/b/hacknic2018.appspot.com/o/img%2Fuser.png?alt=media&token=a9d59d0f-4084-4437-9354-ac81196391f9" alt="">
                 <h5 class="mt-0 mb-1">Juan López López</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
                 nte sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
