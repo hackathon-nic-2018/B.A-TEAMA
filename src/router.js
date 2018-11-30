@@ -3,35 +3,68 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Perfil from './views/Perfil.vue'
 import Buscador from './views/Buscador.vue'
+import PageNotFound from './views/PageNotFound'
+import About from './views/About'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: { requiresAuth: false }
     },
     {
       path: '/perfil',
       name: 'perfil',
-      component: Perfil
+      component: Perfil,
+      meta: { requiresAuth: true }
     },
     {
       path: '/buscar',
       name: 'buscar',
-      component: Buscador
+      component: Buscador,
+      meta: { requiresAuth: true }
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: About,
+      meta: { requiresAuth: false }
+    },
+    {
+      path: '/page-not-found',
+      name: 'PageNotFound',
+      component: PageNotFound,
+      meta: { requiresAuth: false }
+    },
+    {
+      path: '*',
+      name: 'PageNotFound',
+      component: PageNotFound,
+      meta: { requiresAuth: false }
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  const authUser = JSON.parse(window.localStorage.getItem('lbUser'))
+  let auth = to.meta.requiresAuth
+  if (auth) {
+    if (!authUser) {
+      next({ name: 'PageNotFound' })
+    }
+    else {
+      next()
+    }
+  }
+  else {
+    next()
+  }
+})
+
+export default router

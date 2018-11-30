@@ -14,7 +14,7 @@
         </ul>
           </div>
           <div class="col-md-4 text-right" style="margin-bottom:80px;">
-            <b-button v-b-modal.modal3 variant="outline-secondary">PUBLICAR</b-button>
+            <b-button v-b-modal.modal3 variant="outline-secondary" v-if="user.rol === 'VENDEDOR'">PUBLICAR</b-button>
             <b-modal id="modal3" title="PUBLICAR PRODUCTO">
                 <b-form @submit="onPublicar" @reset="onReset" v-if="show">
                     <b-form-group id="exampleInputGroup2"
@@ -111,6 +111,7 @@
 export default {
   data () {
     return {
+      user: null,
       form: {
         nombre: '',
         fotourl: '',
@@ -121,6 +122,9 @@ export default {
       show: true
     }
   },
+  created: function () {
+    this.user = localStorage.getItem('lbUser')
+   },
   methods: {
     onPublicar (evt) {
       evt.preventDefault();
