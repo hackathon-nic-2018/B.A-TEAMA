@@ -11,7 +11,7 @@
         </ul>
           </div>
           <div class="col-md-4 text-right" style="margin-bottom:80px;">
-            <b-button v-b-modal.modal3 variant="outline-secondary" v-if="user.rol === 'VENDEDOR'">PUBLICAR</b-button>
+            <b-button v-b-modal.modal3 variant="outline-secondary" v-if="rolUserlogged.rol === 'VENDEDOR'">PUBLICAR</b-button>
             <b-modal id="modal3" title="PUBLICAR PRODUCTO">
                 <b-form @submit="onPublicar" @reset="onReset" v-if="show"> <!--form ventana modal-->
                     <b-form-group id="exampleInputGroup2"
@@ -59,7 +59,7 @@
       </div>
       <div v-if="rolUserlogged.rol === 'CLIENTE'">
         <h3>PRODUCTOS QUE ME INTERESAN</h3>
-        <div class="container text-center"> <!--seccion card projectos-->
+        <div class="container cliente text-center"> <!--seccion card projectos-->
             <div class="row">
                 <div class="col-lg-4 col-md-6" v-for="(item, index) in productClient" :key="index">
                     <b-card :title="item.producto.nombre"
@@ -68,7 +68,7 @@
                         img-top
                         tag="article"
                         style="max-width: 20rem;"
-                        class="mb-2">
+                        class="mb-2 card">
                         <p class="card-text">
                         {{item.producto.descripcion}}
                         </p>
@@ -194,6 +194,17 @@ export default {
 <style>
 .list-unstyled{
     padding: 30px;
-}   
+}
+.cliente{
+    background-color: silver;
+} 
+.card{
+    border-color: brown;
+}  
+ul{
+    border: 1px solid silver;
+    border-radius: 0.5%;
+    padding: 20px;
+}
 </style>
 
